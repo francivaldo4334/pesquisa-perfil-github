@@ -42,9 +42,7 @@ fun RepositoriesController.from(repos:br.com.fcr.searchusergithub.data.model.Rep
 }
 fun RepositoriesController.toUiRepository():Repositories{
     var result = Repositories()
-    this.forEach {
-        result.add(it.toUiRepository())
-    }
+    map { result.add(it.toUiRepository()) }
     return result
 }
 data class RepositoryController(

@@ -12,5 +12,5 @@ class Common {
 }
 sealed class Screen(val route:String){
     class Search:Screen("Search")
-    class Perfil:Screen("Perfil/{search}")
+    class Perfil:Screen("Perfil")
 }

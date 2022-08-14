@@ -13,7 +13,7 @@ import br.com.fcr.searchusergithub.presentation.model.Repositories
 import br.com.fcr.searchusergithub.presentation.model.User
 import kotlinx.coroutines.launch
 
-class MyViewModel:ViewModel() {
+object MyViewModel:ViewModel() {
     var responserepositories by mutableStateOf(Repositories())
     var responseuser by mutableStateOf(User())
     fun getUser(user:String){

@@ -25,7 +25,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window,false)
-        val viewModel = MyViewModel()
         setContent {
             PesquisarPerfilNoGihubTheme {
                 // A surface container using the 'background' color from the theme
@@ -39,18 +38,8 @@ class MainActivity : ComponentActivity() {
                         composable(Screen.Search().route){
                             SearchPage()
                         }
-                        composable(Screen.Perfil().route,){ navBackStackEntry ->
-                            var search = navBackStackEntry.arguments?.getString("search").toString()
-                            search = search
-                                .removePrefix("{")
-                                .removeSuffix("}")
-                            Log.d("SE","$search")
-                            var user = viewModel.responseuser
-                            var listRepos = viewModel.responserepositories
-                            viewModel.getUser(search)
-                            viewModel.getRepositories(search)
-
-                            PerfilPage(user = user, repos = listRepos)
+                        composable(Screen.Perfil().route){
+                            PerfilPage()
                         }
                     }
                 }

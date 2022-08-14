@@ -24,6 +24,7 @@ import br.com.fcr.R
 import br.com.fcr.searchusergithub.presentation.Common
 import br.com.fcr.searchusergithub.presentation.Screen
 import br.com.fcr.searchusergithub.presentation.theme.*
+import br.com.fcr.searchusergithub.presentation.viewmodel.MyViewModel
 
 @Composable
 fun SearchPage(){
@@ -62,6 +63,8 @@ fun SearchPage(){
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
                     keyboardActions = KeyboardActions(onSearch = {
                         Common.navController?.navigate(Screen.Perfil().route.replace("search",valueTF))
+                        MyViewModel.getUser(valueTF)
+                        MyViewModel.getRepositories(valueTF)
                     }),
                     colors = TextFieldDefaults.textFieldColors(
                         backgroundColor = MaterialTheme.colors.background,

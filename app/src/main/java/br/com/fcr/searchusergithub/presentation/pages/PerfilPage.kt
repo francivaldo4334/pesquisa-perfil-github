@@ -21,17 +21,20 @@ import androidx.compose.ui.unit.dp
 import br.com.fcr.searchusergithub.presentation.model.Repository
 import br.com.fcr.searchusergithub.presentation.model.User
 import br.com.fcr.searchusergithub.presentation.theme.*
+import br.com.fcr.searchusergithub.presentation.viewmodel.MyViewModel
 import br.com.fcr.searchusergithub.presentation.widget.Repository
 import coil.compose.rememberAsyncImagePainter
 
 @Composable
-fun PerfilPage(user:User,repos:List<Repository>){
+fun PerfilPage(){
+    var user = MyViewModel.responseuser
+
     val imagePerfil = rememberAsyncImagePainter(model = user.avatar_url)
     val name = user.name
     val _fllowers = user.fllowers
     val _fllowing = user.fllowing
     val _link = user.link
-    val repositories = repos
+    val repositories = MyViewModel.responserepositories
     Box(
         modifier = Modifier
             .fillMaxSize()
